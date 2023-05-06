@@ -1,44 +1,39 @@
 #include<iostream>
-
 using namespace std;
- 
- class Demo
- {
-       public:
-        int No1; //characterstics of class 
-        int No2; //characterstics of class 
 
+class Demo
+{
+        public:
+        int No1;
+        int No2;
 
-    
-        void Fun (int A, int B) 
+        Demo(int i, int j)
         {
-            cout<<"Inside Fun "<<this->No1<<"\n";
-            cout<<"Inside Fun "<<this->No2<<"\n";
-
-           
+            No1 = i;
+            No2 = j;
         }
 
-        void Gun(int A)  
+        void Fun(int A, int B)  // void Fun(Demo *this, int A, int B)
         {
-          
+            cout<<"Inside Fun : "<<this->No1<<"\n";
+            cout<<"Inside Fun : "<<this->No2<<"\n";
         }
-        
- };  //class close 
 
-
-
-
+        void Gun(int A)         // void Gun(Demo *this, int A)
+        {
+            cout<<"Inside Gun : "<<this->No1<<"\n";
+            cout<<"Inside Gun : "<<this->No2<<"\n";        
+        }
+};
 int main()
 {
-
-    Demo obj1; 
-    Demo obj2;
+    Demo obj1(11,21);
+    Demo obj2(51,101);
     
-    obj1.Fun(11,21);    //Fun(&obj1, 11, 21);
-    obj2.Gun(51);   //Gun(&obj2,11);
-    
+    obj1.Fun(10,20);        // Fun(&obj1,10,20);        Fun(100,10,20)
+    obj2.Gun(10);           // Gun(&obj2,10);           Gun(200,10)
 
     return 0;
 }
 
-//Every C++ programs gets internally converted into C program.
+// Every C++ programs gets internally converted into C program.
